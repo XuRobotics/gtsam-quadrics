@@ -53,6 +53,20 @@ Run the build step:
 cmake --build . -j$(nproc)
 ```
 
+Then, install python dependencies and wrapper:
+```
+pip install pyparsing
+pip install numpy
+make python-install
+```
+
+
+Update PYTHONPATH (change the directory according to where this repo is cloned on your computer):
+```
+export PYTHONPATH=/opt/ros/noetic/lib/python3/dist-packages:$HOME/gtsam-quadrics:$HOME/gtsam-quadrics/build
+```
+
+
 Then optionally run any of the other supported targets as described below:
 
 | **Target name** | **Description**                                |
@@ -66,11 +80,10 @@ Then optionally run any of the other supported targets as described below:
 _Note: documentation requires Doxygen (`sudo apt install doxygen`) and epstopdf (`sudo apt install texlive-font-utils`)_
 
 For example, to install the library into system paths run:
-
 ```
 cmake --build . --target install
-make python-install
 ```
+
 
 
 ## Planned developments
