@@ -22,65 +22,6 @@ GTSAM Quadrics contains both C++ libraries, and Python wrappers for use in Pytho
 
 Python wrappers can be installed via one of the following options:
 
-1. [Through our Conda package](#conda): single command installs everything including system dependencies (recommended)
-2. [Through our pip package](#pip): single command installs GTSAM and GTSAM Quadrics Python modules and Python dependences, but you take care of system dependencies
-3. [Directly from source](#from-source): allows easy editing and extension of our code, but you take care of building and all dependencies
-
-Or you can use the C++ libraries directly by:
-
-1. [Building with CMake](#building-with-cmake): builds the library from scratch, and allows you to install into your system library paths
-
-Please note that for all methods except the Conda method, you must have the following system dependencies installed beforehand:
-
-- A C++ compiler: e.g. `sudo apt install build-essential`
-- CMake >= 3.0: `sudo apt install cmake`
-- Boost C++ libraries >= 1.43: `sudo apt install libboost-all-dev`
-- METIS matrix library: `sudo apt install libmetis-dev` <!-- in future, automatically get from gtsam/3rdparty, required when including gtsam/Symbol.h etc, maybe we just need to update some path? -->
-
-### Conda
-
-TODO: actually make feedstock
-
-The only requirement is that you have [Conda installed](https://conda.io/projects/conda/en/latest/user-guide/install/index.html) on your system. We provide Conda packages through [Conda Forge](https://conda-forge.org/), which recommends adding their channel globally with strict priority:
-
-```
-conda config --add channels conda-forge
-conda config --set channel_priority strict
-```
-
-Once you have access to the `conda-forge` channel, GTSAM Quadrics is installed by running the following from inside a [Conda environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html):
-
-```
-conda install gtsam_quadrics
-```
-
-You can see a list of our Conda dependencies in [the feedstock recipe for GTSAM Quadrics](https://github.com/conda-forge/gtsam-quadrics-feedstock/blob/master/recipe/meta.yaml).
-
-### Pip
-
-TODO: actually add package to PyPI
-
-First, install the system dependencies mentioned above have been installed. Then pre-built Python modules for both GTSAM Quadrics and GTSAM can be installed via:
-
-```
-pip install gtsam_quadrics
-```
-
-### From source
-
-Installing from source is very similar to the `pip` method above, accept we install from a local copy. Ensure the system dependencies described above are installed.
-
-Then clone the repository, and initialise the `gtsam` submodule:
-
-```
-git clone --recurse-submodules https://github.com/best-of-acrv/gtsam-quadrics
-```
-
-Enter the `gtsam_quadrics` directory, and simply install via `pip` (the build process will take a while):
-
-```
-pip install .
-```
 
 ### Building with CMake
 
@@ -128,9 +69,9 @@ For example, to install the library into system paths run:
 
 ```
 cmake --build . --target install
+make python-install
 ```
 
-TODO check these all still work???
 
 ## Using the GTSAM Quadrics and GTSAM Python APIs
 
