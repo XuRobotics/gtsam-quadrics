@@ -63,7 +63,7 @@ make python-install
 
 Update PYTHONPATH (change the directory according to where this repo is cloned on your computer):
 ```
-export PYTHONPATH=/opt/ros/noetic/lib/python3/dist-packages:$HOME/gtsam-quadrics:$HOME/gtsam-quadrics/build
+export PYTHONPATH=${PYTHONPATH}:$HOME/gtsam-quadrics:$HOME/gtsam-quadrics/build
 ```
 
 
